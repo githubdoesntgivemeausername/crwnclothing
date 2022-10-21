@@ -1,5 +1,4 @@
-//import {async} from 'firebase/util';
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
 import {
   getAuth,
   signInWithRedirect,
@@ -7,9 +6,9 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-} from 'firebase/auth';
-
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+  signOut,
+} from "firebase/auth";
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDr23Ek4gbJ45wKMwy9oIqEqiFHnY183mg",
@@ -87,3 +86,5 @@ export const db = getFirestore();
 
 return await signInWithEmailAndPassword(auth,email,password)
 };
+
+export const signOutUser = async () => await signOut(auth);
